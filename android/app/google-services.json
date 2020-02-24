@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "912169721834",
+    "firebase_url": "https://majorproject-db95b.firebaseio.com",
+    "project_id": "majorproject-db95b",
+    "storage_bucket": "majorproject-db95b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912169721834:android:1263792e58bcee68b61c93",
+        "android_client_info": {
+          "package_name": "flyingkripto.com.safeu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912169721834-l15uu23io9n2uoc4emt49f74atrg5kn9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "flyingkripto.com.safeu",
+            "certificate_hash": "6e15f1d6abfe983da8c2b40971cc8c75d78a8f8f"
+          }
+        },
+        {
+          "client_id": "912169721834-tcjfs3ich2kba33dmsjjvkr53lq5lbqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGY2Uv2wkKQv6YMaCSeKYgn6w4dFxpGHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912169721834-tcjfs3ich2kba33dmsjjvkr53lq5lbqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
