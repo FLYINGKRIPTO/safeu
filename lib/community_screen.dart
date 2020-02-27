@@ -1,4 +1,14 @@
+import 'dart:async';
+import 'dart:math';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:safeu/important_people.dart';
+import 'package:safeu/user_model.dart';
+
+import 'all_people.dart';
 
 class CommunityScreen extends StatefulWidget {
   @override
@@ -6,6 +16,10 @@ class CommunityScreen extends StatefulWidget {
 }
 
 class _CommunityScreenState extends State<CommunityScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -22,36 +36,14 @@ class _CommunityScreenState extends State<CommunityScreen> {
         ),
         body: TabBarView(
           children: <Widget>[
-            MyPeople(),
+            ImportantPeople(),
             AllPeople(),
           ],
         )
       ),
     );
   }
-}
-class MyPeople extends StatefulWidget {
-  @override
-  _MyPeopleState createState() => _MyPeopleState();
-}
 
-class _MyPeopleState extends State<MyPeople> {
-  @override
-  Widget build(BuildContext context) {
-    return Center();
-  }
-}
 
-class AllPeople extends StatefulWidget {
-  @override
-  _AllPeopleState createState() => _AllPeopleState();
 }
-
-class _AllPeopleState extends State<AllPeople> {
-  @override
-  Widget build(BuildContext context) {
-    return Center();
-  }
-}
-
 
