@@ -5,7 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:getflutter/getflutter.dart';
 import 'package:provider/provider.dart';
+import 'package:safeu/chatbot.dart';
 import 'package:safeu/community_screen.dart';
+import 'package:safeu/firebase_notification_handler.dart';
 import 'package:safeu/login_page.dart';
 import 'package:safeu/send_sms.dart';
 import 'package:safeu/set_contacts.dart';
@@ -37,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
 
     _checkCurrentUser();
+    FirebaseNotifications().setUpFirebase();
     super.initState();
   }
   @override
@@ -110,8 +113,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 GFButton(
                   text : "Send sms to Primary contacts",
                   onPressed: (){
-
-                   getLocationAndSendSMS("Your friend ${_currentUser.displayName} might be in some trouble, Kindly check out ,This was ${_currentUser.displayName}'s last location ",recipients);
+                    if(recipients.length < 1){
+                      showDialog(context: context,
+                      builder: (context) {
+                         return AlertDialog(
+                           title: Text("No primary contacts set"),
+                           actions: <Widget>[
+                             FlatButton(
+                               child: Text("Set Primary contacts"),
+                               onPressed: (){
+                                 Navigator.of(context).push(MaterialPageRoute(
+                                   builder: (context) => SetPrimaryContacts()
+                                 ));
+                               },
+                             )
+                           ],
+                         );
+                      }
+                      );
+                    }
+                    else
+                      {                   getLocationAndSendSMS("Your friend ${_currentUser.displayName} might be in some trouble, Kindly check out ,This was ${_currentUser.displayName}'s last location ",recipients);
+                      }
                   },
                 ),
                 GFButton(
@@ -128,6 +151,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
+          ),
+          GFButton(
+            text: "Talk to chatbot",
+            onPressed: (){
+             Navigator.of(context).push(MaterialPageRoute(
+               builder: (context){
+                return SafeUBot();
+               }
+             ));
+            },
           )
         ],
       ),

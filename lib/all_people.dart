@@ -44,7 +44,7 @@ class _AllPeopleState extends State<AllPeople> {
                 );
               },
             ),
-          )
+          ),
         ],
       ),
     );
@@ -91,8 +91,9 @@ class _AllPeopleState extends State<AllPeople> {
   void makeRelationShip(String uid,  value) {
     if(value !=null && uid != null){
       relationShipReference = FirebaseDatabase.instance.reference().child("relation");
-      relationShipReference.set({
+      relationShipReference.push().set({
         uid : value
+
       });
     }
   }
